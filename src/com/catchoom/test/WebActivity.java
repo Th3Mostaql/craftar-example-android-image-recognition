@@ -1,4 +1,4 @@
-// com.craftar.craftarexamplesir is free software. You may use it under the MIT license, which is copied
+// com.craftar.craftarexamples is free software. You may use it under the MIT license, which is copied
 // below and available at http://opensource.org/licenses/MIT
 //
 // Copyright (c) 2014 Catchoom Technologies S.L.
@@ -20,35 +20,50 @@
 // OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 // DEALINGS IN THE SOFTWARE.
 
-package com.craftar.craftarexamplesir;
+package com.catchoom.test;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import com.catchoom.test.R;
+import com.catchoom.test.R.id;
+import com.catchoom.test.R.layout;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
-import android.view.Window;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
-public class SplashScreenActivity extends Activity {
+public class WebActivity extends Activity implements OnClickListener {
+	private WebView webView1;
 
-	private static final long SPLASH_SCREEN_DELAY = 1000;
-
+	public static final String WEB_ACTIVITY_URL="url";
+	
+	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.splash_screen);
+		setContentView(R.layout.activity_web);
+		webView1 = (WebView) findViewById(R.id.activity_web);
+		webView1.getSettings().setSupportZoom(true);
+		webView1.getSettings().setBuiltInZoomControls(true);
+		if (Build.VERSION.SDK_INT > 11){
+			webView1.getSettings().setDisplayZoomControls(false);
+		}
+		
+		webView1.setInitialScale(100);
+		webView1.setWebViewClient(new WebViewClient() {
 
-		TimerTask task = new TimerTask() {
-			public void run() {
-				Intent launchersActivity = new Intent( SplashScreenActivity.this, LaunchersActivity.class);
-				startActivity(launchersActivity);
-				finish();
-			}
-		};
-		Timer timer = new Timer();
-		timer.schedule(task, SPLASH_SCREEN_DELAY);
+		});
+
+		Bundle bundle = getIntent().getExtras();
+		webView1.loadUrl(bundle.getString(WEB_ACTIVITY_URL));
+	}
+
+	@Override
+	public void onClick(View v) {
+
 	}
 
 }
