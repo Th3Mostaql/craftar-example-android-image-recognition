@@ -1,4 +1,4 @@
-package com.craftar.fragmentexample;
+package com.catchoom.test;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.craftar.craftarexamplesir.R;
+import com.catchoom.test.R;
 
 public class EmptyFragment extends Fragment {
 

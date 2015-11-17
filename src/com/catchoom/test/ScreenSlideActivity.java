@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.craftar.fragmentexample;
+package com.catchoom.test;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -22,10 +22,9 @@ import android.os.Bundle;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
 
+import com.catchoom.test.R;
 import com.craftar.CraftARActivity;
-import com.craftar.craftarexamplesir.R;
 
 
 /**
@@ -33,7 +32,7 @@ import com.craftar.craftarexamplesir.R;
  * automatically plays such an animation when calling {@link ViewPager#setCurrentItem(int)}, there
  * isn't any animation-specific code in this sample.
  */
-public class ScreenSlideActivity extends CraftARActivity implements OnPageChangeListener{
+public class ScreenSlideActivity extends CraftARActivity{
     /**
      * The number of pages (wizard steps) to show in this demo.
      */
@@ -52,7 +51,7 @@ public class ScreenSlideActivity extends CraftARActivity implements OnPageChange
     private PagerAdapter mPagerAdapter;
     
     
-    private CraftarCameraFragment cameraFragment;
+    private CraftARCameraFragment cameraFragment;
     private EmptyFragment emptyFragment;
     
     @Override
@@ -63,18 +62,17 @@ public class ScreenSlideActivity extends CraftARActivity implements OnPageChange
     @Override
 	public void onPostCreate() {
         setContentView(R.layout.activity_screen_slide);
-		cameraFragment= new CraftarCameraFragment();
+		cameraFragment= new CraftARCameraFragment();
 		emptyFragment= new EmptyFragment();
         // Instantiate a ViewPager and a PagerAdapter.
         mPager = (ViewPager) findViewById(R.id.pager);
         mPagerAdapter = new ScreenSlidePagerAdapter(getFragmentManager());
         mPager.setAdapter(mPagerAdapter);
-        mPager.setOnPageChangeListener(this);
     }
 
 
     /**
-     * A simple pager adapter that represents 5 {@link CraftarCameraFragment} objects, in
+     * A simple pager adapter that represents 5 {@link CraftARCameraFragment} objects, in
      * sequence.
      */
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
@@ -99,29 +97,16 @@ public class ScreenSlideActivity extends CraftARActivity implements OnPageChange
             return NUM_PAGES;
         }
     }
-    @Override
-	public void onPageSelected(int pageNumber) {
-        switch(pageNumber){
-        case 0:
-        	cameraFragment.onCameraHiddenChanged(false);
-        	break;
-        case 1:
-        	cameraFragment.onCameraHiddenChanged(true);
-        	break;
-        default:
-        	break;
-        }
+
+
+	@Override
+	public void onCameraOpenFailed() {
+		cameraFragment.onCameraOpenFailed();
 	}
 
 	@Override
-	public void onPageScrollStateChanged(int pageNumber) {
+	public void onPreviewStarted(int width, int height) {
+		cameraFragment.onPreviewStarted(width,height);
 	}
-
-	@Override
-	public void onPageScrolled(int arg0, float arg1, int arg2) {
-
-	}
-
-	
-
+  
 }

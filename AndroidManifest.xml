@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.craftar.craftarexamplesir"
+    package="com.catchoom.test"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -20,7 +20,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.craftar.craftarexamplesir.SplashScreenActivity"
+            android:name=".SplashScreenActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,22 +29,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.craftar.craftarexamplesir.RecognitionFinderActivity">
+            android:name=".RecognitionFinderActivity">
             </activity>
         <activity
-            android:name="com.craftar.craftarexamplesir.RecognitionOnlyActivity">
+            android:name=".RecognitionSingleShotActivity">
             </activity>
         <activity
-            android:name="com.craftar.craftarexamplesir.LaunchersActivity">
+            android:name=".LaunchersActivity">
             </activity>
         <activity
-            android:name="com.craftar.craftarexamplesir.HowToActivity">
+            android:name=".HowToActivity">
             </activity>
         <activity
-            android:name="com.craftar.craftarexamplesir.WebActivity">
+            android:name=".WebActivity">
             </activity>
         <activity
-            android:name="com.craftar.fragmentexample.ScreenSlideActivity">
+            android:name=".ScreenSlideActivity">
             </activity>
     </application>
 
