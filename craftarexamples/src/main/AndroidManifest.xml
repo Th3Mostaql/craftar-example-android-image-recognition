@@ -28,24 +28,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".RecognitionFinderActivity" />
+        <activity android:name=".RecognitionSingleShotActivity" />
+        <activity android:name=".LaunchersActivity" />
+        <activity android:name=".HowToActivity" />
+        <activity android:name=".WebActivity" />
+        <activity android:name=".ScreenSlideActivity" />
         <activity
-            android:name=".RecognitionFinderActivity">
-            </activity>
+            android:name=".HowtoAcvtivity"
+            android:label="@string/title_activity_howto_acvtivity" />
         <activity
-            android:name=".RecognitionSingleShotActivity">
-            </activity>
+            android:name=".HowtofinderActivity"
+            android:label="@string/title_activity_howtofinder" />
         <activity
-            android:name=".LaunchersActivity">
-            </activity>
+            android:name=".HowtoActivity"
+            android:label="@string/title_activity_howto" />
         <activity
-            android:name=".HowToActivity">
-            </activity>
+            android:name=".HowtoOnlyRecognitionActivity"
+            android:label="@string/title_activity_howto_only_recognition" />
         <activity
-            android:name=".WebActivity">
-            </activity>
-        <activity
-            android:name=".ScreenSlideActivity">
-            </activity>
+            android:name=".HowtoFragmentActivity"
+            android:label="@string/title_activity_howto_fragment"></activity>
     </application>
 
 </manifest>

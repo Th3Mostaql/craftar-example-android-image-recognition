@@ -43,7 +43,7 @@ public class SplashScreenActivity extends Activity implements SetCollectionListe
 
 	//Collection token of the collection you want to load.
 	//Note that you can load several collections at once, but every search 
-	//request is performed only on ONE collection (the one that you have set through CraftAROnDeviceIR.setCollection()).
+	//request is performed only on ONE collection (the one that you have set through CraftARCloudRecognition.setCollection()).
 	public final static String COLLECTION_TOKEN="imagerecognition";
 
 	CraftARCloudRecognition mCloudIR;
@@ -56,7 +56,7 @@ public class SplashScreenActivity extends Activity implements SetCollectionListe
 			
 		CraftARSDK.Instance().init(getApplicationContext());
 		
-		//Initialize the Offline IR Module
+		//Initialize the CloudIR Module
 		mCloudIR = CraftARCloudRecognition.Instance();
 			
 		mCloudIR.setCollection(COLLECTION_TOKEN, this);		
