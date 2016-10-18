@@ -41,7 +41,7 @@ import com.craftar.CraftARSearchResponseHandler;
 
 public class RecognitionFinderActivity extends CraftARActivity implements CraftARSearchResponseHandler{
 
-	private final static String TAG = "RecognitionFinderActivity";	
+	private final static String TAG = "RecognitionFinderAct";
 
 	CraftARCloudRecognition mCloudIR;
 	CraftARSDK mCraftARSDK;
@@ -70,7 +70,7 @@ public class RecognitionFinderActivity extends CraftARActivity implements CraftA
 		mCloudIR = CraftARCloudRecognition.Instance();	
 		
 		//Tell the SDK that the CloudIR who manage the calls to singleShotSearch() and startFinding().
-		//In this case, as we are using on-device-image-recognition, we will tell the SDK that the CloudIR singleton will manage this calls.
+		//In this case, as we are using Cloud image recognition, we will tell the SDK that the CloudIR singleton will manage this calls.
 		mCraftARSDK.setSearchController(mCloudIR.getSearchController());
 		
 		//Tell the SDK that we want to receive the search responses in this class.
@@ -104,7 +104,7 @@ public class RecognitionFinderActivity extends CraftARActivity implements CraftA
 			long ellapsedTime = System.currentTimeMillis() - startFinderTimeMillis;
 			if(ellapsedTime > FINDER_SESSION_TIME_MILLIS ){
 				stopFinding();
-				//No object were found during this session
+				//No objects were found during this session
 				showNoObjectsDialog();
 			}
 		}

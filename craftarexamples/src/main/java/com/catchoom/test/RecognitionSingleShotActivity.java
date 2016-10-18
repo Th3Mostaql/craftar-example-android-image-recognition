@@ -42,7 +42,7 @@ import com.craftar.CraftARSearchResponseHandler;
 
 public class RecognitionSingleShotActivity extends CraftARActivity implements CraftARSearchResponseHandler, OnClickListener {
 
-	private final static String TAG = "RecognitionSingleShotActivity";
+	private final static String TAG = "RecognitionSingleShotAct";
 
 	private View mScanningLayout;
 	private View mTapToScanLayout;
@@ -71,7 +71,7 @@ public class RecognitionSingleShotActivity extends CraftARActivity implements Cr
 		mCloudIR = CraftARCloudRecognition.Instance();	
 		
 		//Tell the SDK that the CloudIR who manage the calls to singleShotSearch() and startFinding().
-		//In this case, as we are using on-device-image-recognition, we will tell the SDK that the CloudIR instance will manage this calls.
+		//In this case, as we are using cloud image recognition, we will tell the SDK that the CloudIR instance will manage this calls.
 		mCraftARSDK.setSearchController(mCloudIR.getSearchController());
 		
 		//Tell the SDK that we want to receive the search responses in this class.

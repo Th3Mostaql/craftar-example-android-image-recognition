@@ -22,7 +22,7 @@ import com.craftar.CraftARSearchResponseHandler;
 
 public class CraftARCameraFragment extends Fragment  implements CraftARSearchResponseHandler{
 
-	private final static String TAG = "RecognitionFinderActivity";	
+	private final static String TAG = "RecognitionFinderAct";
 
 	ScreenSlideActivity mParentActivity;
 	CraftARCloudRecognition mCloudIR;
@@ -46,11 +46,11 @@ public class CraftARCameraFragment extends Fragment  implements CraftARSearchRes
 		mCraftARSDK = CraftARSDK.Instance(); 
 		mCraftARSDK.startCapture(mParentActivity);
 		
-		//Get the instance to the OnDeviceIR singleton (it has already been initialized in the SplashScreenActivity, and the collectoins are already loaded).
+		//Get the instance to the CloudIR singleton (it has already been initialized in the SplashScreenActivity, and the collectoins are already loaded).
 		mCloudIR = CraftARCloudRecognition.Instance();	
 		
-		//Tell the SDK that the OnDeviceIR who manage the calls to singleShotSearch() and startFinding().
-		//In this case, as we are using on-device-image-recognition, we will tell the SDK that the OnDeviceIR singleton will manage this calls.
+		//Tell the SDK that the CloudIR who manage the calls to singleShotSearch() and startFinding().
+		//In this case, as we are using cloud image recognition, we will tell the SDK that the CloudIR singleton will manage this calls.
 		mCraftARSDK.setSearchController(mCloudIR.getSearchController());
 		
 		//Tell the SDK that we want to receive the search responses in this class.
@@ -94,7 +94,7 @@ public class CraftARCameraFragment extends Fragment  implements CraftARSearchRes
 			long ellapsedTime = System.currentTimeMillis() - startFinderTimeMillis;
 			if(ellapsedTime > FINDER_SESSION_TIME_MILLIS ){
 				stopFinding();
-				//No object were found during this session
+				//No objects were found during this session
 				showNoObjectsDialog();
 			}
 		}
