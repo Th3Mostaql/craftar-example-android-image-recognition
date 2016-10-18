@@ -41,6 +41,10 @@ public class LaunchersActivity extends Activity implements OnClickListener {
 		findViewById(R.id.play_finder).setOnClickListener(this);
 		findViewById(R.id.play_recognition_only).setOnClickListener(this);
 		findViewById(R.id.play_fragment_finder).setOnClickListener(this);
+		findViewById(R.id.howto_link).setOnClickListener(this);
+		findViewById(R.id.howto_link_finder).setOnClickListener(this);
+		findViewById(R.id.howto_link_recognition_only).setOnClickListener(this);
+		findViewById(R.id.howto_link_fragment).setOnClickListener(this);
 
 		// Setup bottom Links
 		findViewById(R.id.imageButton_logo).setOnClickListener(this);
@@ -61,6 +65,18 @@ public class LaunchersActivity extends Activity implements OnClickListener {
 			break;
 		case R.id.play_fragment_finder:
 			intent = new Intent(this, ScreenSlideActivity.class);
+			break;
+		case R.id.howto_link_finder:
+			intent = new Intent(this, HowtofinderActivity.class);
+			break;
+		case R.id.howto_link_recognition_only:
+			intent = new Intent(this, HowtoOnlyRecognitionActivity.class);
+			break;
+		case R.id.howto_link_fragment:
+			intent = new Intent(this, HowtoFragmentActivity.class);
+			break;
+		case R.id.howto_link:
+			intent = new Intent(this, HowtoActivity.class);
 			break;
 		case R.id.imageButton_logo:
 			intent = new Intent(this, WebActivity.class);
