@@ -12,6 +12,8 @@
 # *.o
 # *.so
 
+*.iml
+
 # generated files
 bin/
 gen/
