@@ -34,9 +34,9 @@ import com.craftar.CLog;
 import com.craftar.CraftARCloudRecognition;
 import com.craftar.CraftARError;
 import com.craftar.CraftARSDK;
-import com.craftar.SetCloudCollectionListenner;
+import com.craftar.SetCloudCollectionListener;
 
-public class SplashScreenActivity extends Activity implements SetCloudCollectionListenner{
+public class SplashScreenActivity extends Activity implements SetCloudCollectionListener{
 
 	private final static String TAG = "SplashScreenActivity";	
 
