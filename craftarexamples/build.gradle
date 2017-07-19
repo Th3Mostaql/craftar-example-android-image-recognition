@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 20
-    buildToolsVersion "23.0.2"
+    compileSdkVersion 23
+    buildToolsVersion '25.0.0'
 
     defaultConfig {
         applicationId "com.catchoom.test"
-        minSdkVersion 13
-        targetSdkVersion 18
+        minSdkVersion 17
+        targetSdkVersion 23
     }
 
     buildTypes {
@@ -26,6 +26,6 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v13:20.0.+'
+    compile 'com.android.support:support-v13:23.0.0+'
     compile fileTree(dir: '../../libs/', include: ['*.jar'])
 }
